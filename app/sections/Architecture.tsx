@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Architecture() {
   return (
-    <section id="architecture" className="relative w-full overflow-hidden bg-white py-16 lg:py-10">
+    <section id="architecture" className="relative w-full overflow-hidden bg-white py-16 lg:py-10 ">
 
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">

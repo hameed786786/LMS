@@ -63,7 +63,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-white py-20 lg:py-24 lg:pt-10">
+    <section className="relative w-full overflow-hidden bg-white py-16 lg:py-24 lg:pt-10 pt-5">
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">

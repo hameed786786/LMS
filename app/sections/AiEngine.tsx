@@ -34,7 +34,7 @@ const aiCards: AiCardProps[] = [
 
 export default function AiEngine() {
   return (
-    <section id="ai-engine" className="relative w-full overflow-hidden bg-[#131313] text-white py-16 lg:py-24 animate-fade-in">
+    <section id="ai-engine" className="relative w-full overflow-hidden bg-[#131313] text-white py-16 lg:py-24 animate-fade-in pt-16 ">
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">

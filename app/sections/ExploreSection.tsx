@@ -10,7 +10,7 @@ export default function ExploreSection() {
   const [mediaType, setMediaType] = useState<MediaTab>("video");
 
   return (
-    <section className="relative w-full overflow-hidden bg-white py-20 lg:py-24">
+    <section className="relative w-full overflow-hidden bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-[1440px] w-full px-6 md:px-20">
 
         {/* ================= HEADING & HEADER ================= */}

@@ -110,7 +110,7 @@ export default function Security() {
 
 
   return (
-    <section className="relative w-full bg-white py-20 lg:py-14 overflow-hidden">
+    <section className="relative w-full bg-white py-10 lg:py-14 overflow-hidden">
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">

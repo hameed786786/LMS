@@ -20,7 +20,7 @@ export default function Metrics() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#F5F5F2] pb-20 lg:pb-20">
+    <section className="relative w-full overflow-hidden bg-[#F5F5F2] pb-10 lg:pb-20">
       <div className="mx-auto max-w-[1440px] px-6 md:px-15">
         
         {/* Dark Container Box */}

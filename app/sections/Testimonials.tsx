@@ -58,7 +58,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative w-full bg-white py-20 lg:py-24 overflow-hidden">
+    <section className="relative w-full bg-white py-16 lg:py-24 overflow-hidden">
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">
