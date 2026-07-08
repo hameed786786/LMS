@@ -36,9 +36,9 @@ export default function Comparison() {
   const renderMobileCard = (title: string, tags: string[], isActive: boolean) => {
     if (isActive) {
       return (
-        <div className="relative border border-neutral-200/50 rounded-[20px] p-5 overflow-hidden shadow-md flex flex-col justify-between min-h-[320px] transition-all duration-300">
+        <div className="relative border border-neutral-200/50 rounded-[12px] p-4 overflow-hidden shadow-md flex flex-col justify-between min-h-[260px] transition-all duration-300">
           {/* Background Image - Object Fill to stretch and fit card without crop */}
-          <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 -z-10 rounded-[12px] overflow-hidden">
             <Image
               src="/card.png"
               alt="Background shape"
@@ -48,14 +48,14 @@ export default function Comparison() {
             />
           </div>
           <div>
-            <h3 className="font-inter font-bold text-[18px] text-neutral-900 mb-4">
+            <h3 className="font-inter font-bold text-[18px] text-neutral-900 mb-3">
               {title}
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="font-inter font-semibold text-[12px] text-neutral-800 bg-white shadow-sm rounded-full px-3 py-1.5 hover:shadow-md transition-shadow cursor-default"
+                  className="font-inter font-semibold text-[11px] text-neutral-800 bg-white shadow-sm rounded-full px-2.5 py-1 hover:shadow-md transition-shadow cursor-default"
                 >
                   {tag}
                 </span>
@@ -66,16 +66,16 @@ export default function Comparison() {
       );
     } else {
       return (
-        <div className="bg-white border border-neutral-200/50 rounded-[20px] p-5 shadow-sm flex flex-col justify-between min-h-[320px] transition-all duration-300">
+        <div className="bg-white border border-neutral-200/50 rounded-[12px] p-4 shadow-sm flex flex-col justify-between min-h-[260px] transition-all duration-300">
           <div>
-            <h3 className="font-inter font-bold text-[18px] text-neutral-900 mb-4">
+            <h3 className="font-inter font-bold text-[18px] text-neutral-900 mb-3">
               {title}
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="font-inter font-medium text-[12px] text-neutral-500 bg-neutral-100/80 border border-neutral-200/30 rounded-full px-3 py-1.5 transition-colors hover:bg-neutral-100"
+                  className="font-inter font-medium text-[11px] text-neutral-500 bg-neutral-100/80 border border-neutral-200/30 rounded-full px-2.5 py-1 transition-colors hover:bg-neutral-100"
                 >
                   {tag}
                 </span>  
@@ -143,21 +143,21 @@ export default function Comparison() {
   };
 
   return (
-    <section id="comparison" className="relative w-full overflow-hidden  lg:py-24">
+    <section id="comparison" className="relative w-full overflow-hidden  lg:py-24 lg:pt-0">
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">
-        <div className="max-w-md mx-auto flex flex-col gap-8">
+        <div className="max-w-md mx-auto flex flex-col gap-6">
           
           {/* Header */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-3">
             <span className="font-inter text-[11px] font-semibold tracking-wider text-neutral-400 bg-white border border-neutral-200/60 rounded-full px-3.5 py-1">
               The Legacy LMS Problem
             </span>
-            <h2 className="font-inter font-bold text-[28px] leading-[1.2] tracking-[-0.02em] text-neutral-900">
+            <h2 className="font-inter font-bold text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] text-neutral-900">
               Why traditional LMS platforms fail modern organizations
             </h2>
-            <p className="font-inter font-normal text-[14px] leading-[1.6] text-neutral-500">
+            <p className="font-inter font-normal text-[13px] md:text-[14px] leading-[1.6] text-neutral-500">
               Most Learning Management Systems were designed years ago. They rely on manual administration, disconnected tools, outdated interfaces, weak reporting, and poor learner engagement.
             </p>
           </div>

@@ -63,7 +63,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#F5F5F2] py-20 lg:py-24">
+    <section className="relative w-full overflow-hidden bg-white py-20 lg:py-24 lg:pt-10">
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">
@@ -84,10 +84,13 @@ export default function Pricing() {
 
           {/* Cards Stack */}
           <div className="flex flex-col gap-8 mt-4">
-            {plans.map((plan, idx) => (
+            {[
+              ...plans.filter((p) => p.isPopular),
+              ...plans.filter((p) => !p.isPopular),
+            ].map((plan, idx) => (
               <div
                 key={idx}
-                className={`relative rounded-[28px] border p-6 shadow-md flex flex-col justify-between min-h-[500px] isolate ${
+                className={`relative rounded-[12px] border p-5 shadow-md flex flex-col justify-between min-h-[420px] isolate ${
                   plan.bgType === "grid"
                     ? "border-blue-400/20 text-black"
                     : "border-[#D9D9D9] bg-white text-neutral-900"
@@ -95,7 +98,7 @@ export default function Pricing() {
               >
                 {/* Background image for Grid type card */}
                 {plan.bgType === "grid" && (
-                  <div className="absolute inset-0 rounded-[28px] overflow-hidden bg-[#C2DAFF] -z-10">
+                  <div className="absolute inset-0 rounded-[12px] overflow-hidden bg-[#C2DAFF] -z-10">
                     <Image
                       src="/card.png"
                       alt=""
@@ -129,7 +132,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Plan Features */}
-                <ul className="flex flex-col gap-3 my-8">
+                <ul className="flex flex-col gap-3 my-5">
                   {plan.features.map((feature, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-3">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${plan.bgType === "grid" ? "text-neutral-950" : "text-black"} shrink-0 mt-0.5`}>
@@ -181,7 +184,7 @@ export default function Pricing() {
             {plans.map((plan, idx) => (
               <div
                 key={idx}
-                className={`relative rounded-[32px] border p-8 shadow-sm flex flex-col justify-between isolate ${
+                className={`relative rounded-[12px] border p-8 shadow-sm flex flex-col justify-between isolate w-[384px] ${
                   plan.bgType === "grid"
                     ? "border-blue-400/20 text-black"
                     : "border-[#D9D9D9] bg-white text-neutral-900"
@@ -189,7 +192,7 @@ export default function Pricing() {
               >
                 {/* Background image for Grid type card */}
                 {plan.bgType === "grid" && (
-                  <div className="absolute inset-0 rounded-[32px] overflow-hidden bg-[#C2DAFF] -z-10">
+                  <div className="absolute inset-0 rounded-[12px] overflow-hidden bg-[#C2DAFF] -z-10">
                     <Image
                       src="/card.png"
                       alt=""
@@ -210,11 +213,11 @@ export default function Pricing() {
                 )}
 
                 {/* Plan Header */}
-                <div className="flex flex-col items-start gap-2.5">
+                <div className="flex flex-col items-start gap-2.5 w-[342px]">
                   <span className={`font-inter font-semibold text-[26px] ${plan.bgType === "grid" ? "text-neutral-950" : "text-black"}`}>
                     {plan.name}
                   </span>
-                  <p className={`font-inter text-[15px] leading-relaxed ${plan.bgType === "grid" ? "text-neutral-800" : "text-neutral-400"}`}>
+                  <p className={`font-inter text-[14px] font-normal  ${plan.bgType === "grid" ? "text-[#000000]" : "text-neutral-400"}`}>
                     {plan.description}
                   </p>
                   <span className={`font-inter font-bold text-[48px] mt-6 leading-none ${plan.bgType === "grid" ? "text-neutral-950" : "text-black"}`}>
@@ -229,8 +232,8 @@ export default function Pricing() {
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`${plan.bgType === "grid" ? "text-neutral-950" : "text-black"} shrink-0 mt-0.5`}>
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
-                      <span className={`font-inter text-[15px] ${
-                        plan.bgType === "grid" ? "text-neutral-950 font-semibold" : "text-neutral-500 font-normal"
+                      <span className={`font-inter text-[14px] ${
+                        plan.bgType === "grid" ? "text-[#000000] font-semibold" : "text-[#87928C] font-normal"
                       }`}>
                         {feature}
                       </span>
@@ -239,7 +242,7 @@ export default function Pricing() {
                 </ul>
 
                 {/* CTA Button */}
-                <button className="w-full bg-black text-white hover:bg-black/90 transition-all font-inter font-semibold py-4 rounded-full text-[15px] shadow-sm mt-auto">
+                <button className="w-[318px] bg-black text-white hover:bg-black/90 transition-all font-inter font-medium py-4 rounded-[10px] text-[14px] shadow-sm mt-auto">
                   {plan.buttonText}
                 </button>
               </div>

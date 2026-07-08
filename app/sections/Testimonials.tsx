@@ -9,7 +9,7 @@ const Star = () => (
     width="14"
     height="14"
     viewBox="0 0 24 24"
-    fill="#FBBF24"
+    fill="#758090"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
@@ -44,7 +44,6 @@ const clientTestimonials = [
   { name: "Ahmed Saimoon", role: "CEO, Avito", src: "/assets/client-2.1.svg", text: testimonialsData.saimoon },
   { name: "Sakib Mo", role: "CEO, Avito", src: "/assets/client-2.2.svg", text: testimonialsData.sakib },
   { name: "Nazmul Karim", role: "CEO, Avito", src: "/assets/client-3.svg", text: testimonialsData.nazmul },
-  { name: "Amir Khan", role: "CEO, Avito", src: "/assets/client-3.1.svg", text: testimonialsData.amir },
 ];
 
 export default function Testimonials() {
@@ -63,41 +62,51 @@ export default function Testimonials() {
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">
-        <div className="max-w-md mx-auto flex flex-col gap-8">
+        <div className="max-w-md mx-auto flex flex-col gap-6">
           
           {/* Header */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-3">
             <span className="font-inter text-[12px] font-semibold tracking-wider text-[#5A5A59] bg-[#F5F5F2] border border-[#00000012] rounded-full px-3.5 py-1">
-              Testimonials
+              Loved by enterprise teams
             </span>
-            <h2 className="font-inter font-bold text-[32px] leading-[1.2] tracking-[-0.02em] text-neutral-900">
-              Loved by learners, trusted by L&D
+            <h2 className="font-inter font-bold text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] text-neutral-900">
+              Trusted by leaders shaping the future of learning
             </h2>
           </div>
 
           {/* Slider Layout */}
-          <div className="bg-[#E4E4E1] rounded-[24px] p-5 pt-6 pb-8 w-full flex flex-col items-center">
+          <div className="relative bg-[#C2DAFF] rounded-[12px] p-4 pt-5 pb-6 w-full flex flex-col items-center overflow-hidden isolate shadow-sm">
+            {/* Background Image */}
+            <div className="absolute inset-0 -z-10 rounded-[12px] overflow-hidden">
+              <Image
+                src="/card.png"
+                alt="Background shape"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
             {/* Slide Card */}
-            <div className="bg-white rounded-[20px] border border-black/5 p-6 min-h-[250px] w-full flex flex-col justify-between shadow-sm">
-              <p className="text-neutral-800 text-[14px] leading-relaxed mb-6 font-inter">
+            <div className="bg-white rounded-[12px] border border-black/5 p-4 min-h-[200px] w-full flex flex-col justify-between shadow-sm">
+              <p className="text-neutral-800 text-[13px] leading-relaxed mb-4 font-poppins">
                 "{clientTestimonials[currentIndex].text}"
               </p>
               
               <div className="flex items-center gap-3">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0 bg-neutral-100">
+                <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0 bg-neutral-100">
                   <Image
                     src={clientTestimonials[currentIndex].src}
                     alt={clientTestimonials[currentIndex].name}
                     fill
                     className="object-cover"
-                    sizes="44px"
+                    sizes="36px"
                   />
                 </div>
                 <div>
-                  <p className="text-[14px] font-bold text-black font-inter">
+                  <p className="text-[13px] font-bold text-black font-poppins">
                     {clientTestimonials[currentIndex].name}
                   </p>
-                  <p className="text-neutral-500 text-[12px] font-inter">
+                  <p className="text-neutral-500 text-[11px] font-poppins">
                     {clientTestimonials[currentIndex].role}
                   </p>
                   <StarsRow />
@@ -106,10 +115,10 @@ export default function Testimonials() {
             </div>
 
             {/* Slider Arrows */}
-            <div className="flex gap-4 justify-center mt-6">
+            <div className="flex gap-4 justify-center mt-4">
               <button 
                 onClick={prevSlide}
-                className="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm hover:bg-neutral-50 transition-colors"
+                className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-sm hover:bg-neutral-50 transition-colors"
                 aria-label="Previous Testimonial"
               >
                 <svg width="6" height="10" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +127,7 @@ export default function Testimonials() {
               </button>
               <button 
                 onClick={nextSlide}
-                className="w-11 h-11 bg-white rounded-full flex items-center justify-center shadow-sm hover:bg-neutral-50 transition-colors"
+                className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-sm hover:bg-neutral-50 transition-colors"
                 aria-label="Next Testimonial"
               >
                 <svg width="6" height="10" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,16 +147,16 @@ export default function Testimonials() {
           {/* Header Row */}
           <div className="flex flex-row justify-between items-start mb-16 gap-8">
             <div className="flex flex-col items-start gap-4">
-              <span className="font-inter text-[14px] font-normal tracking-wider text-[#5A5A59] bg-[#F5F5F2] border border-[#00000012] rounded-[56px] px-3.5 py-1">
-                Testimonials
+              <span className="font-inter text-[14px] font-normal tracking-wider text-[#5A5A59] bg-white border border-[#00000012] rounded-[56px] px-3.5 py-1">
+                Loved by enterprise teams
               </span>
               <h2 className="font-inter font-normal text-[48px] leading-[1.15] tracking-[-0.03em] text-black max-w-[640px]">
-                Loved by learners, trusted by L&D
+                Trusted by leaders shaping the future of learning
               </h2>
             </div>
-            <div className="max-w-[540px] pt-12">
-              <p className="font-inter font-normal text-[19px] leading-[1.7] text-[#5A5A59]">
-                Read how leading enterprises are using Nexara to scale compliant onboarding, upskilling, and operations.
+            <div className="max-w-[540px] pt-[54px]">
+              <p className="font-inter font-normal text-[19px] leading-[1.7] text-black">
+                From Fortune 500 L&D teams to fast-scaling tech companies, Nexara is the operating system behind measurable learning outcomes.
               </p>
             </div>
           </div>
@@ -159,7 +168,7 @@ export default function Testimonials() {
             <div className="flex flex-col gap-6">
               {/* Card 1: Istiak Ahmed – tall portrait top */}
               <div className={`bg-white rounded-2xl overflow-hidden ${cardShadow} flex flex-col`}>
-                <div className="relative w-full h-[182px]">
+                <div className="relative w-full h-[182px] w-[256px]">
                   <Image
                     src="/assets/client-1.svg"
                     alt="Istiak Ahmed"
@@ -169,13 +178,13 @@ export default function Testimonials() {
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-neutral-700 text-[14px] leading-relaxed mb-4 font-inter">
+                  <p className="text-neutral-700 text-[14px] leading-relaxed mb-4 font-poppins">
                     {testimonialsData.istiak}
                   </p>
-                  <p className="text-black text-[14px] font-bold font-inter">
+                  <p className="text-black text-[14px] font-bold font-poppins">
                     Istiak Ahmed
                   </p>
-                  <p className="text-neutral-500 text-[12px] font-inter">
+                  <p className="text-neutral-500 text-[12px] font-poppins">
                     CEO, Avito
                   </p>
                   <StarsRow />
@@ -194,16 +203,16 @@ export default function Testimonials() {
                     />
                   </div>
                   <div>
-                    <p className="text-black text-[14px] font-bold font-inter">
+                    <p className="text-black text-[14px] font-bold font-poppins">
                       Jon Sari
                     </p>
-                    <p className="text-neutral-500 text-[12px] font-inter">
+                    <p className="text-neutral-500 text-[12px] font-poppins">
                       CEO, Avito
                     </p>
                     <StarsRow />
                   </div>
                 </div>
-                <p className="text-neutral-700 text-[14px] leading-relaxed font-inter">
+                <p className="text-neutral-700 text-[14px] leading-relaxed font-poppins">
                   {testimonialsData.jon}
                 </p>
               </div>
@@ -213,7 +222,7 @@ export default function Testimonials() {
             <div className="flex flex-col gap-6">
               {/* Card 3: Rahul Deb – wide side-by-side */}
               <div className={`bg-white rounded-2xl overflow-hidden ${cardShadow} flex h-[255px]`}>
-                <div className="relative shrink-0 w-[220px] h-full">
+                <div className="relative shrink-0 w-[271.6297607421875px] h-full">
                   <Image
                     src="/assets/client-2.svg"
                     alt="Rahul Deb"
@@ -222,13 +231,13 @@ export default function Testimonials() {
                   />
                 </div>
                 <div className="flex flex-col justify-center px-8 py-6 flex-1">
-                  <p className="text-neutral-700 text-[14px] leading-relaxed mb-4 font-inter">
+                  <p className="text-neutral-700 text-[14px] leading-relaxed mb-4 font-poppins">
                     {testimonialsData.rahul}
                   </p>
-                  <p className="text-black text-[14px] font-bold font-inter">
+                  <p className="text-black text-[14px] font-bold font-poppins">
                     Rahul Deb
                   </p>
-                  <p className="text-neutral-500 text-[12px] font-inter">
+                  <p className="text-neutral-500 text-[12px] font-poppins">
                     CEO, Avito
                   </p>
                   <StarsRow />
@@ -247,16 +256,16 @@ export default function Testimonials() {
                     />
                   </div>
                   <div>
-                    <p className="text-black text-[14px] font-bold font-inter">
+                    <p className="text-black text-[14px] font-bold font-poppins">
                       Ahmed Saimoon
                     </p>
-                    <p className="text-neutral-500 text-[12px] font-inter">
+                    <p className="text-neutral-500 text-[12px] font-poppins">
                       CEO, Avito
                     </p>
                     <StarsRow />
                   </div>
                 </div>
-                <p className="text-neutral-700 text-[14px] leading-relaxed font-inter">
+                <p className="text-neutral-700 text-[14px] leading-relaxed font-poppins">
                   {testimonialsData.saimoon}
                 </p>
               </div>
@@ -273,16 +282,16 @@ export default function Testimonials() {
                     />
                   </div>
                   <div>
-                    <p className="text-black text-[14px] font-bold font-inter">
+                    <p className="text-black text-[14px] font-bold font-poppins">
                       Sakib Mo
                     </p>
-                    <p className="text-neutral-500 text-[12px] font-inter">
+                    <p className="text-neutral-500 text-[12px] font-poppins">
                       CEO, Avito
                     </p>
                     <StarsRow />
                   </div>
                 </div>
-                <p className="text-neutral-700 text-[14px] leading-relaxed font-inter">
+                <p className="text-neutral-700 text-[14px] leading-relaxed font-poppins">
                   {testimonialsData.sakib}
                 </p>
               </div>
@@ -302,43 +311,17 @@ export default function Testimonials() {
                     />
                   </div>
                   <div>
-                    <p className="text-black text-[14px] font-bold font-inter">
+                    <p className="text-black text-[14px] font-bold font-poppins">
                       Nazmul Karim
                     </p>
-                    <p className="text-neutral-500 text-[12px] font-inter">
+                    <p className="text-neutral-500 text-[12px] font-poppins">
                       CEO, Avito
                     </p>
                     <StarsRow />
                   </div>
                 </div>
-                <p className="text-neutral-700 text-[14px] leading-relaxed font-inter">
+                <p className="text-neutral-700 text-[14px] leading-relaxed font-poppins">
                   {testimonialsData.nazmul}
-                </p>
-              </div>
-
-              {/* Card 7: Amir Khan */}
-              <div className={`bg-white rounded-2xl p-5 ${cardShadow}`}>
-                <div className="flex items-center gap-3.5 mb-3.5">
-                  <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0 bg-neutral-100">
-                    <Image
-                      src="/assets/client-3.1.svg"
-                      alt="Amir Khan"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-black text-[14px] font-bold font-inter">
-                      Amir Khan
-                    </p>
-                    <p className="text-neutral-500 text-[12px] font-inter">
-                      CEO, Avito
-                    </p>
-                    <StarsRow />
-                  </div>
-                </div>
-                <p className="text-neutral-700 text-[14px] leading-relaxed font-inter">
-                  {testimonialsData.amir}
                 </p>
               </div>
             </div>

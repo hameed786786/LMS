@@ -27,7 +27,7 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 className="font-inter font-bold text-[30px] leading-[1.15] tracking-[-0.02em] text-neutral-900">
+          <h1 className="font-inter font-bold text-[32px] leading-[1.15] tracking-[-0.02em] text-neutral-900">
             Transform Enterprise<br />
             Learning with AI
           </h1>
@@ -69,21 +69,21 @@ export default function Hero() {
 
           {/* Compatible With */}
           <div className="flex flex-col items-start gap-3">
-            <span className="font-inter text-[12px] font-medium text-neutral-400">
+            <span className="font-inter text-[11px] font-medium text-neutral-400">
               Compatible with
             </span>
-            <div className="flex flex-row flex-nowrap items-center gap-2.5 w-full overflow-x-auto scrollbar-none">
-              <div className="flex items-center justify-center bg-white border border-neutral-200 rounded-full px-3.5 h-[38px] shadow-sm shrink-0">
-                <Image src="/googlecloud.svg" alt="Google Cloud" width={100} height={22} className="object-contain" />
+            <div className="flex flex-row flex-wrap items-center gap-2 w-full">
+              <div className="flex items-center justify-center bg-white border border-neutral-200 rounded-full px-2.5 h-[32px] shadow-sm shrink-0">
+                <Image src="/googlecloud.svg" alt="Google Cloud" width={80} height={18} className="object-contain" />
               </div>
-              <div className="flex items-center justify-center bg-white border border-neutral-200 rounded-full px-3 h-[38px] shadow-sm shrink-0">
-                <Image src="/aws.svg" alt="AWS" width={50} height={18} className="object-contain" />
+              <div className="flex items-center justify-center bg-white border border-neutral-200 rounded-full px-2 h-[32px] shadow-sm shrink-0">
+                <Image src="/aws.svg" alt="AWS" width={40} height={15} className="object-contain" />
               </div>
-              <div className="flex items-center justify-center bg-white border border-neutral-200 rounded-full px-3 h-[38px] shadow-sm shrink-0">
-                <Image src="/firebase.svg" alt="Firebase" width={20} height={20} className="object-contain" />
+              <div className="flex items-center justify-center bg-white border border-neutral-200 rounded-full px-2 h-[32px] shadow-sm shrink-0">
+                <Image src="/firebase.svg" alt="Firebase" width={16} height={16} className="object-contain" />
               </div>
-              <div className="flex items-center justify-center bg-white border border-neutral-200 rounded-full px-3 h-[38px] shadow-sm shrink-0">
-                <Image src="/lasticon.svg" alt="Integration" width={32} height={22} className="object-contain" />
+              <div className="flex items-center justify-center bg-white border border-neutral-200 rounded-full px-2 h-[32px] shadow-sm shrink-0">
+                <Image src="/lasticon.svg" alt="Integration" width={26} height={18} className="object-contain" />
               </div>
             </div>
           </div>

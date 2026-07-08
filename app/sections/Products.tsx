@@ -106,28 +106,28 @@ export default function Products() {
   // ── MOBILE CARD RENDERER ──────────────────────────────────────────
   const renderMobileCard = (card: ProductCardProps) => {
     return (
-      <div className="group bg-white border border-neutral-200/60 rounded-[24px] p-6 shadow-sm flex flex-col gap-6">
+      <div className="group bg-white border border-neutral-200/60 rounded-[12px] p-4 shadow-sm flex flex-col gap-4">
         
         {/* Card Header */}
         <div className="flex items-start justify-between w-full">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             {/* Icon */}
-            <div className="relative w-12 h-12 rounded-[12px] bg-neutral-950 flex items-center justify-center p-2.5 shrink-0 overflow-hidden isolate shadow-sm transition-colors duration-300">
+            <div className="relative w-10 h-10 rounded-[8px] bg-neutral-950 flex items-center justify-center p-2 shrink-0 overflow-hidden isolate shadow-sm transition-colors duration-300">
               <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Image src="/card.png" alt="" fill className="object-fill" />
               </div>
-              <Image src={card.iconSrc} alt="" width={26} height={26} className="brightness-0 invert object-contain" />
+              <Image src={card.iconSrc} alt="" width={22} height={22} className="brightness-0 invert object-contain" />
             </div>
             
             {/* Titles */}
             <div className="flex flex-col">
-              <span className="font-inter text-[11px] font-bold tracking-wider text-neutral-400 uppercase">{card.label}</span>
+              <span className="font-inter text-[10px] font-bold tracking-wider text-neutral-400 uppercase">{card.label}</span>
               <h3 className="font-inter font-bold text-[18px] text-neutral-900 leading-tight mt-0.5">{card.title}</h3>
             </div>
           </div>
 
           {/* Link Arrow */}
-          <div className="relative w-[24px] h-[24px] shrink-0">
+          <div className="relative w-[20px] h-[20px] shrink-0">
             <Image
               src="/ri_arrow-up-line.svg"
               alt="Arrow"
@@ -138,31 +138,31 @@ export default function Products() {
         </div>
 
         {/* Description */}
-        <p className="font-inter font-normal text-[14px] leading-relaxed text-neutral-500">
+        <p className="font-inter font-normal text-[13px] leading-relaxed text-neutral-500">
           {card.description}
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           {card.tags.map((tag) => (
             <span
               key={tag}
-              className="font-inter font-normal text-[13px] text-black bg-[#F5F5F5] rounded-full px-3.5 py-1.5"
+              className="font-inter font-normal text-[11px] text-black bg-[#F5F5F5] rounded-full px-2.5 py-1"
             >
               {tag}
             </span>
           ))}
           {card.plusTag && (
-            <span className="font-inter font-semibold text-[13px] text-white bg-black rounded-full px-3.5 py-1.5">
+            <span className="font-inter font-semibold text-[11px] text-white bg-black rounded-full px-2.5 py-1">
               {card.plusTag}
             </span>
           )}
         </div>
 
         {/* Business Value panel */}
-        <div className="bg-[#F5F5F5] rounded-[14px] p-4 flex flex-col gap-1">
-          <span className="font-inter font-bold text-[11px] tracking-wider text-neutral-400 uppercase">Business value</span>
-          <p className="font-inter font-normal text-[13px] leading-relaxed text-neutral-700">{card.businessValue}</p>
+        <div className="bg-[#F5F5F5] rounded-[8px] p-3 flex flex-col gap-1">
+          <span className="font-inter font-bold text-[10px] tracking-wider text-neutral-400 uppercase">Business value</span>
+          <p className="font-inter font-normal text-[12px] leading-relaxed text-neutral-700">{card.businessValue}</p>
         </div>
 
       </div>
@@ -237,27 +237,27 @@ export default function Products() {
   };
 
   return (
-    <section id="products" className="relative w-full overflow-hidden bg-neutral-50/20  lg:py-24">
+    <section id="products" className="relative w-full overflow-hidden bg-neutral-50/20  lg:py-24 pb-10">
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">
-        <div className="max-w-md mx-auto flex flex-col gap-8">
+        <div className="max-w-md mx-auto flex flex-col gap-6">
           
           {/* Header */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-3">
             <span className="font-inter text-[11px] font-semibold tracking-wider text-neutral-400 bg-white border border-neutral-200/60 rounded-full px-3.5 py-1">
               Our Products
             </span>
-            <h2 className="font-inter font-bold text-[28px] leading-[1.2] tracking-[-0.02em] text-neutral-900">
+            <h2 className="font-inter font-bold text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] text-neutral-900">
               Four products. One ecosystem.
             </h2>
-            <p className="font-inter font-normal text-[14px] leading-[1.6] text-neutral-500">
+            <p className="font-inter font-normal text-[13px] md:text-[14px] leading-[1.6] text-neutral-500">
               Each product is powerful on its own. Together, they replace an entire stack of legacy LMS tools with a single, AI-native platform.
             </p>
           </div>
 
           {/* Cards Grid */}
-          <div className="flex flex-col gap-6 mt-4">
+          <div className="flex flex-col gap-4 mt-4">
             {PRODUCTS_DATA.map((card) => (
               <div key={card.title}>
                 {renderMobileCard(card)}

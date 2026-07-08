@@ -7,40 +7,43 @@ interface FaqItemProps {
   answer: string;
 }
 
-function FaqRow({ question, answer }: FaqItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
+interface FaqRowProps {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+}
 
+function FaqRow({ question, answer, isOpen, onToggle }: FaqRowProps) {
   return (
-    <div 
-      onClick={() => setIsOpen(!isOpen)}
-      className="w-full bg-[#1C1C1C] border border-white/5 rounded-[16px] p-6 hover:border-white/10 hover:bg-[#252525] transition-all duration-300 cursor-pointer flex flex-col select-none"
+    <div
+      onClick={onToggle}
+      className="max-w-[1120px] px-4 md:px-6 bg-[#1C1C1C] border border-white/5 rounded-[12px] md:rounded-[16px] hover:border-white/10 hover:bg-[#252525] transition-all duration-300 cursor-pointer flex flex-col select-none justify-center overflow-hidden min-h-[64px] md:min-h-[88px] py-4 md:py-6"
     >
       <div className="flex items-center gap-4 w-full">
-        <svg 
-          width="18" 
-          height="18" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2.5" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          className={`text-white/60 shrink-0 transform transition-transform duration-200 ${
-            isOpen ? "rotate-90" : ""
-          }`}
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`text-white/60 shrink-0 transform transition-transform duration-200 w-4 h-4 md:w-5 md:h-5 ${isOpen ? "rotate-90" : ""
+            }`}
         >
           <polyline points="9 18 15 12 9 6" />
         </svg>
-        <span className="font-inter font-normal text-[15px] lg:text-[18px] text-white leading-tight">
+        <span className="font-inter font-normal text-[13px] md:text-[15px] lg:text-[18px] text-white leading-tight">
           {question}
         </span>
       </div>
-      
+
       {/* Animated collapse content wrapper */}
-      <div className={`overflow-hidden transition-all duration-300 ${
-        isOpen ? "max-h-[300px] opacity-100 mt-4 pt-4 border-t border-white/5" : "max-h-0 opacity-0"
-      }`}>
-        <p className="font-inter font-normal text-[14px] lg:text-[16px] leading-relaxed text-neutral-400">
+      <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[300px] opacity-100 mt-2 pt-2" : "max-h-0 opacity-0"
+        }`}>
+        <p className="font-inter font-normal text-[12px] md:text-[14px] lg:text-[16px] leading-relaxed text-neutral-400">
           {answer}
         </p>
       </div>
@@ -49,6 +52,8 @@ function FaqRow({ question, answer }: FaqItemProps) {
 }
 
 export default function Faq() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   const faqItems: FaqItemProps[] = [
     {
       question: "What is included in the demo?",
@@ -73,17 +78,17 @@ export default function Faq() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#F5F5F2] pb-20 lg:pb-24">
-      <div className="mx-auto max-w-[1440px] w-full px-6 md:px-20">
-        
+    <section className="relative w-full overflow-hidden bg-white">
+      <div className="mx-auto max-w-[1440px] w-full px-6 md:px-14">
+
         {/* ================= MOBILE ================= */}
-        <div className="md:hidden w-full bg-[#131313] rounded-[32px] p-6 flex flex-col gap-8 shadow-2xl relative overflow-hidden text-white">
+        <div className="md:hidden w-full max-w-md mx-auto bg-[#131313] rounded-[12px] p-5 flex flex-col gap-6 shadow-2xl relative overflow-hidden text-white">
           {/* Header */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-3">
             <span className="font-inter text-[12px] font-semibold tracking-wider text-neutral-300 bg-white/10 border border-white/10 rounded-full px-3.5 py-1">
               FAQ
             </span>
-            <h2 className="font-inter font-normal text-[32px] leading-[1.2] tracking-[-0.02em] text-white">
+            <h2 className="font-inter font-normal text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] text-white">
               Frequently asked questions
             </h2>
           </div>
@@ -91,16 +96,22 @@ export default function Faq() {
           {/* FAQ Accordion list */}
           <div className="flex flex-col gap-3">
             {faqItems.map((item, idx) => (
-              <FaqRow key={idx} question={item.question} answer={item.answer} />
+              <FaqRow
+                key={idx}
+                question={item.question}
+                answer={item.answer}
+                isOpen={openIndex === idx}
+                onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
+              />
             ))}
           </div>
         </div>
 
         {/* ================= DESKTOP ================= */}
-        <div className="hidden md:block w-full bg-[#131313] rounded-[48px] p-16 flex flex-col gap-12 shadow-2xl relative overflow-hidden text-white">
+        <div className="hidden md:block w-[1332px] h-[946px] bg-[#191818] rounded-[24px] py-30 px-25 flex flex-col gap-12 shadow-2xl relative overflow-hidden text-white ">
           {/* Header */}
           <div className="flex flex-col items-start gap-4">
-            <span className="font-inter text-[14px] font-normal tracking-wider text-neutral-300 bg-white/10 border border-white/10 rounded-[56px] px-3.5 py-1">
+            <span className="font-inter text-[16px] font-normal tracking-wider text-neutral-300 bg-[#191818] border border-white/10 rounded-[56px] px-3.5 py-1">
               FAQ
             </span>
             <h2 className="font-inter font-normal text-[48px] leading-[1.15] tracking-[-0.03em] text-white">
@@ -109,9 +120,15 @@ export default function Faq() {
           </div>
 
           {/* FAQ Accordion list */}
-          <div className="flex flex-col gap-4 max-w-[1080px] w-full mt-4">
+          <div className="flex flex-col gap-4  w-[1120px] mt-10 h-[674px]">
             {faqItems.map((item, idx) => (
-              <FaqRow key={idx} question={item.question} answer={item.answer} />
+              <FaqRow
+                key={idx}
+                question={item.question}
+                answer={item.answer}
+                isOpen={openIndex === idx}
+                onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
+              />
             ))}
           </div>
         </div>

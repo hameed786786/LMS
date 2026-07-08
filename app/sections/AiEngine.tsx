@@ -38,22 +38,22 @@ export default function AiEngine() {
       
       {/* ================= MOBILE ================= */}
       <div className="md:hidden px-6">
-        <div className="max-w-md mx-auto flex flex-col gap-8">
+        <div className="max-w-md mx-auto flex flex-col gap-6">
           {/* Header */}
-          <div className="flex flex-col items-start gap-4">
-            <span className="w-[95px] h-[33px] font-inter text-[14px] font-medium tracking-wider text-neutral-300 bg-[#FFFFFF]/10 border border-[#FFFFFF]/10 rounded-[56px] py-1 px-[10px] flex items-center justify-center">
+          <div className="flex flex-col items-start gap-3">
+            <span className="w-[95px] h-[33px] font-inter text-[12px] font-medium tracking-wider text-neutral-300 bg-[#FFFFFF]/10 border border-[#FFFFFF]/10 rounded-full py-1 px-[10px] flex items-center justify-center">
               Ai Engine
             </span>
-            <h2 className="font-inter font-normal text-[32px] leading-[1.2] tracking-[-0.02em] text-white">
+            <h2 className="font-inter font-normal text-[26px] md:text-[32px] leading-[1.2] tracking-[-0.02em] text-white">
               Artificial intelligence built into every product
             </h2>
-            <p className="font-inter font-normal text-[15px] leading-[1.6] text-neutral-400">
+            <p className="font-inter font-normal text-[13px] md:text-[15px] leading-[1.6] text-neutral-400">
               Every user admin, tutor, learner, and buyer benefits from AI that understands your organization&apos;s data, content, and outcomes.
             </p>
           </div>
 
           {/* Mockup Image for Mobile */}
-          <div className="relative w-full aspect-[1353/1051] rounded-[20px] overflow-hidden border border-white/5 shadow-2xl">
+          <div className="relative w-full aspect-[3180/4204] rounded-[12px] overflow-hidden border border-white/5 shadow-2xl">
             <Image
               src="/AI_Engine-img.png"
               alt="AI Engine Mockup"
@@ -64,14 +64,14 @@ export default function AiEngine() {
           </div>
 
           {/* Cards list for Mobile */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             {aiCards.map((card) => (
               <div 
                 key={card.title}
-                className="bg-[#1C1C1C] border border-[#2D2D2D] rounded-[20px] p-5 flex flex-col gap-4"
+                className="bg-[#1C1C1C] border border-[#2D2D2D] rounded-[12px] p-4 flex flex-col gap-3"
               >
                 {/* SVG Icon */}
-                <div className="relative w-12 h-12 shrink-0 overflow-hidden rounded-[8px]">
+                <div className="relative w-10 h-10 shrink-0 overflow-hidden rounded-[6px]">
                   <Image 
                     src={card.iconSrc} 
                     alt={card.title} 
@@ -83,11 +83,11 @@ export default function AiEngine() {
                 {/* Content */}
                 <div className="flex flex-col">
                   <h3 className="font-inter font-semibold text-[18px] text-white leading-tight">{card.title}</h3>
-                  <div className="flex flex-wrap gap-2 mt-3">
+                  <div className="flex flex-wrap gap-1.5 mt-2.5">
                     {card.tags.map((tag) => (
                       <span 
                         key={tag} 
-                        className="font-inter font-normal text-[12px] text-neutral-300 border border-white/10 bg-white/5 rounded-full px-2.5 py-1"
+                        className="font-inter font-normal text-[11px] text-neutral-300 border border-white/10 bg-white/5 rounded-full px-2 py-0.5"
                       >
                         {tag}
                       </span>
