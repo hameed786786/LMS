@@ -9,7 +9,6 @@ import Security from "./sections/Security";
 import Pricing from "./sections/Pricing";
 import Faq from "./sections/Faq";
 import Testimonials from "./sections/Testimonials";
-
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
